@@ -26,19 +26,22 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     details: {
-        margin: '1rem'
+        margin: '1rem',
+        color: 'grey',
+        fontStyle: 'italic'
     },
-    responsiveImage: {
-        flex: 1,
-        resizeMode: 'contain',
-        [theme.breakpoints.down('md')]: {
-            maxWidth: '90vw'
-        },
+    articleImage: {
+        display: "block",
+        width: "100%",
+        height: "100%",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
     },
     descriptionBackground: {
         backgroundColor: '#d8e2f2',
         marginTop: '2rem',
-        marginBottom: '4rem',
+        marginBottom: '2rem',
         borderRadius: '0.8rem'
     },
     description: {
@@ -64,14 +67,14 @@ const ArticlePage = () => {
                 <Typography className={classes.title}>
                     {article.title}
                 </Typography>
-                <Typography variant="subtitle1" className={classes.details}>
+                <Typography className={classes.details}>
                     Written by {parseName(article.author)} ~ {new Intl.DateTimeFormat("en-GB", {
                     year: "numeric",
                     month: "numeric",
                     day: "numeric"
                 }).format(new Date(article.publishedAt))}
                 </Typography>
-                <img src={article.urlToImage} className={classes.responsiveImage} alt="Article" />
+                <div className={classes.articleImage} style={{ backgroundImage: `url(${article.urlToImage})` }}></div>
                 <Container className={classes.descriptionBackground}>
                     <Typography className={classes.description} variant="subtitle1">
                         {article.description}
@@ -79,6 +82,9 @@ const ArticlePage = () => {
                 </Container>
                 <Typography>
                     {article.content}
+                </Typography>
+                <Typography className={classes.details}>
+                   Source: {article.source.name}
                 </Typography>
             </Grid>
         </Container>);
