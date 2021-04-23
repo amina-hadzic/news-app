@@ -68,7 +68,7 @@ const ArticlePage = () => {
                     {article.title}
                 </Typography>
                 <Typography className={classes.details}>
-                    Written by {parseName(article.author)} ~ {new Intl.DateTimeFormat("en-GB", {
+                    Written by {parseName(article.author) ?? 'Unknown Author'} ~ {new Intl.DateTimeFormat("en-GB", {
                     year: "numeric",
                     month: "numeric",
                     day: "numeric"

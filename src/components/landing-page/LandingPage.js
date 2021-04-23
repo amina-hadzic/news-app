@@ -38,7 +38,7 @@ const LandingPage = () => {
         <Container maxWidth="xl" className={classes.container}>
             <Grid container justify="flex-start" className={classes.container} spacing={1}>
                 {state.news.slice(0, state.articleNr).map((news, key) => (
-                    <Grid key={key} item xs={12} sm={6} md={4} lg={4}>
+                    <Grid key={key} item xs={12} sm={6} md={4} xl={3}>
                             <MediaCard className={classes.paper} news={news}></MediaCard>                   
                     </Grid>
                 ))}
