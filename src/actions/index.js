@@ -18,3 +18,29 @@ export const selectArticle = (article) => {
         payload: article
     };
 }
+
+export const searchNews = (search) => {
+    return {
+        type: 'SEARCH_QUERY',
+        payload: search
+    };
+}
+
+export const searchSort = (sorting) => {
+    if (sorting === 'popular') {
+        return {
+            type: 'SEARCH_SORT_POPULAR',
+            payload: 'popularity'
+        }
+    } else if (sorting === 'publish') {
+        return {
+            type: 'SEARCH_SORT_PUBLISHED',
+            payload: 'publishedAt'
+        }
+    } else {
+        return {
+            type: 'SEARCH_SORT_RELEVANCY',
+            payload: 'relevancy'
+        }
+    }
+}

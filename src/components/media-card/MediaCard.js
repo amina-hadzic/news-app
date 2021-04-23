@@ -13,11 +13,11 @@ import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
     root: {
-        maxWidth: 345,
+        maxWidth: 400,
         display: 'inline-block'
     },
     media: {
-        height: 160,
+        height: 180,
     }
 });
 
@@ -46,7 +46,7 @@ export const MediaCard = ({news}) => {
                     </Typography>
                 </CardContent>
             <CardActions>
-                <Link to={`/article/${news.id}`}>
+                <Link to={`/article/${news.id}`} style={{textDecoration: 'none'}}>
                     <Button size="small" color="primary" onClick={() => onArticleSelect(news)}>
                         Read Full Page
                     </Button>

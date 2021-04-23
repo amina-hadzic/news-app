@@ -1,33 +1,34 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {useSelector} from "react-redux";
 import {MediaCard} from "../media-card/MediaCard";
 import Container from '@material-ui/core/Container';
 import {makeStyles} from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-import { Box, Button } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 import {loadAll} from "../../actions";
 import {useDispatch} from "react-redux";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
     container: {
-        padding: '2rem',
+        padding: '1rem',
         display: 'flex',
-        flexDirection: 'row'
+        flexDirection: 'row',
+        [theme.breakpoints.up('md')]: {
+            padding:'2rem'
+        },
     },
 
     paper: {
     marginBottom: '1rem'
     }
 
-});
+}));
 
 
 const LandingPage = () => {
     const classes = useStyles();
     const state = useSelector(state => state);
     const dispatch = useDispatch();
-
-    console.log(state);
 
     const loadMore = () => {
         dispatch(loadAll(-1));
